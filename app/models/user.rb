@@ -1,9 +1,11 @@
 class User < ApplicationRecord
-  validates :name, presence: true, length: {in: 1..15}
-  email_address = \A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format:{email_address}
-  password_pattern = \A(?=.＊?[a-z])(?=.＊?\d)[a-z\d]{8,32}}\z/i
-  validates :password, length: {in: 8..32}, format:{password_pattern}
+  #validates :name, presence: true, length: {maximum: 15}
+  #ML_REGEX = /[A-Za-z0-9._+]+@[A-Za-z]+.[A-Za-z]/
+  #validates :email, presence: true, format: { with: ML_REGEX }
+  #PW_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,32}\z/i
+  #validates :password, presence: true, format: { with: PW_REGEX }
 
   has_secure_password
+
+  has_many :topics
 end
