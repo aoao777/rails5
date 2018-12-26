@@ -1,6 +1,13 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = Topic.all.includes(:favorite_users)
+    @topic = Topic.new
+  end
+
+  def show
+    @topic = Topic.find(topic_params)
+    @comments = @topic.commetns
+    @comment = Comment.new
   end
 
   def new
