@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   get 'pages/help'
   get 'users/new'
 
-  resources :users, only: [:index, :show]
-  resources :topics, only: [:index, :show, :create] do
-    resources :comments, only: [:create]
-  end
+  resources :users
+  resources :topics
+  resources :comments
+  
 
   get 'favorites/index'
   post '/favorites', to: 'favorites#create'
@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
+
+  get 'comments/new'
+  post '/comments', to: 'comments#create'
 end

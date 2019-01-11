@@ -2,10 +2,10 @@
 
 one:
   content: MyString
-  user: one
-  topic: one
+  user_id: 1
+  topic_id: 1
 
 two:
   content: MyString
-  user: two
-  topic: two
+  user_id: 1
+  topic_id: 1
